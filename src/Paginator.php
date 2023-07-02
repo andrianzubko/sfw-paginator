@@ -83,21 +83,9 @@ class Paginator
     public int $lengthOfSlice;
 
     /**
-     * Just concatenate this url with some page number.
-     */
-    public string $url;
-
-    /**
      * Doing all calculations and storing at properties.
      */
-    public function __construct(
-        int $totalEntries,
-        int $entriesPerPage,
-        int $pagesPerSet,
-        int $currentPage,
-        string $param = 'i',
-        ?string $url = null
-    ) {
+    public function __construct(int $totalEntries, int $entriesPerPage, int $pagesPerSet, int $currentPage) {
         // {{{ statictics
 
         $this->totalEntries = $totalEntries;
@@ -172,18 +160,23 @@ class Paginator
         $this->lengthOfSlice = $this->endOfSlice - $this->startOfSlice + 1;
 
         // }}}
-        // {{{ prepared url
+    }
 
-        $url ??= $_SERVER['REDIRECT_REQUEST_URI'] ?? $_SERVER['REQUEST_URI'] ?? '/';
+    /**
+     * Return all parameters in array with snake cased keys.
+     */
+    public function toArray(): array
+    {
+        $pagination = [];
 
-        $url = preg_replace('/[&?]i=[^&?]*/u', '', $url);
+        foreach ((array) $this as $name => $value) {
+            $name = strtolower(
+                preg_replace('/[A-Z]/', '_$0', $name)
+            );
 
-        if (str_contains($url, '?')) {
-            $this->url = "$url&$param=";
-        } else {
-            $this->url = "$url?$param=";
+            $pagination[$name] = $value;
         }
 
-        // }}}
+        return $pagination;
     }
 }
