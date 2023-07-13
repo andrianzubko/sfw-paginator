@@ -31,43 +31,43 @@ $pg->toArray()['total_entries'];
 ```
 ## Properties
 
-### Slice params:
+### Slice params
 
-$pg->startOfSlice - start position of the slice (>= 0)
+- $pg->startOfSlice - start position of the slice (>= 0)
 
-$pg->endOfSlice - end position of the slice (>= 0)
+- $pg->endOfSlice - end position of the slice (>= 0)
 
-$pg->lengthOfSlice - length of the slice (>= 1)
+- $pg->lengthOfSlice - length of the slice (>= 1)
 
-### Statistics:
+### Statistics
 
-$pg->totalEntries - total number of entries (>= 1) (copied from arguments)
+- $pg->totalEntries - total number of entries (>= 1) (copied from arguments)
 
-$pg->entriesPerPage - number of entries per page (>= 1) (copied from arguments)
+- $pg->entriesPerPage - number of entries per page (>= 1) (copied from arguments)
 
-$pg->pagesPerSet - number of pages per set (>= 1) (copied from arguments)
+- $pg->pagesPerSet - number of pages per set (>= 1) (copied from arguments)
 
-### Pages control:
+### Pages control
 
-$pg->totalPages - total number of pages (>= 1)
+- $pg->totalPages - total number of pages (>= 1)
 
-$pg->currentPage - current number of page (>= 1) (corrected)
+- $pg->currentPage - current number of page (>= 1) (corrected)
 
-$pg->prevPage - previous number of page (>= 1 or false)
+- $pg->prevPage - previous number of page (>= 1 or false)
 
-$pg->nextPage - next number of page (>= 1 or false)
+- $pg->nextPage - next number of page (>= 1 or false)
 
-### Pages set control:
+### Pages set control
 
-$pg->startOfSet - start position of current set (>= 1)
+- $pg->startOfSet - start position of current set (>= 1)
 
-$pg->endOfSet - end position of current set (>= 1)
+- $pg->endOfSet - end position of current set (>= 1)
 
-$pg->pageOfPrevSet - nearest page number of the previous set (>= 1 or false)
+- $pg->pageOfPrevSet - nearest page number of the previous set (>= 1 or false)
 
-$pg->pageOfNextSet - nearest page number of the next set (>= 1 or false)
+- $pg->pageOfNextSet - nearest page number of the next set (>= 1 or false)
 
-$pg->numbersOfSet - numbers of set (one or more numbers in array)
+- $pg->numbersOfSet - numbers of set (one or more numbers in array)
 
 ## Examples
 
