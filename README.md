@@ -1,6 +1,6 @@
 # SFW Paginator
 
-This class intended for organization of paginal navigation on some data. Basically intended for construction of paginal navigation panels on web sites.
+This class intended for organization of page-by-page navigation on some data. Basically intended for construction of page-by-page navigation panels on websites.
 
 ## Installation
 
@@ -11,10 +11,9 @@ composer require andrianzubko/sfw-paginator
 ## Usage
 
 ```php
-
 // Making all calculations and storing results at class properties.
 //
-// All arguments are required and must contains only integer numbers.
+// All arguments are required and must contain only integer numbers.
 $pg = new \SFW\Paginator(
     $totalEntries,   // total number of entries (>= 1)
     $entriesPerPage, // number of entries per page (>= 1)
@@ -110,6 +109,6 @@ Shown from 61 to 70 records
 
 ## Notes
 
-- Most simple way to check, needs to show navigation panel or not, is checking $pg->totalPages property. Needs only, if this property more then 1.
+- Most simple way to check, needs to show navigation panel or not, is checking $pg->totalPages property. Needs only, if this property >1.
 
 - $pg->prevPage, $pg->nextPage, $pg->pageOfPrevSet and $pg->pageOfNextSet properties must be checked for false value before using.

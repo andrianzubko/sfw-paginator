@@ -3,7 +3,7 @@
 namespace SFW;
 
 /**
- * Paginal navigator.
+ * Page-by-page navigator.
  */
 class Paginator
 {
@@ -86,7 +86,7 @@ class Paginator
      * Doing all calculations and storing at properties.
      */
     public function __construct(int $totalEntries, int $entriesPerPage, int $pagesPerSet, int $currentPage) {
-        // {{{ statictics
+        // {{{ statistics
 
         $this->totalEntries = $totalEntries;
 
@@ -163,7 +163,7 @@ class Paginator
     }
 
     /**
-     * Return all parameters in array with snake cased keys.
+     * Returns all parameters in array with snake cased keys.
      */
     public function toArray(): array
     {
