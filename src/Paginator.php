@@ -85,7 +85,12 @@ class Paginator
     /**
      * Doing all calculations and storing at properties.
      */
-    public function __construct(int $totalEntries, int $entriesPerPage, int $pagesPerSet, int $currentPage) {
+    public function __construct(
+        int $totalEntries,
+        int $entriesPerPage,
+        int $pagesPerSet,
+        int $currentPage
+    ) {
         // {{{ statistics
 
         $this->totalEntries = $totalEntries;
@@ -130,9 +135,7 @@ class Paginator
             $this->endOfSet = $this->totalPages;
         }
 
-        for ($i = $this->startOfSet; $i <= $this->endOfSet; $i++) {
-            $this->numbersOfSet[] = $i;
-        }
+        $this->numbersOfSet = range($this->startOfSet, $this->endOfSet);
 
         $this->pageOfPrevSet = $this->startOfSet - 1;
 
@@ -167,16 +170,24 @@ class Paginator
      */
     public function toArray(): array
     {
-        $pagination = [];
-
-        foreach ((array) $this as $name => $value) {
-            $name = strtolower(
-                preg_replace('/[A-Z]/', '_$0', $name)
-            );
-
-            $pagination[$name] = $value;
-        }
-
-        return $pagination;
+        return array_combine(
+            [
+                'total_entries',
+                'entries_per_page',
+                'pages_per_set',
+                'total_pages',
+                'current_page',
+                'prev_page',
+                'next_page',
+                'start_of_set',
+                'end_of_set',
+                'numbers_of_set',
+                'page_of_prev_set',
+                'page_of_next_set',
+                'start_of_slice',
+                'end_of_slice',
+                'length_of_slice',
+            ], (array) $this
+        );
     }
 }
