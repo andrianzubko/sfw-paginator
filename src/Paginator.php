@@ -100,7 +100,7 @@ class Paginator
 
         $this->pagesPerSet = $pagesPerSet;
 
-        $this->totalPages = ceil($this->totalEntries / $this->entriesPerPage);
+        $this->totalPages = (int) ceil($this->totalEntries / $this->entriesPerPage);
 
         // }}}
         // {{{ pages control
@@ -128,7 +128,7 @@ class Paginator
         // }}}
         // {{{ pages set control
 
-        $this->startOfSet = $this->pagesPerSet * floor(($this->currentPage - 1) / $this->pagesPerSet) + 1;
+        $this->startOfSet = $this->pagesPerSet * (int) floor(($this->currentPage - 1) / $this->pagesPerSet) + 1;
 
         $this->endOfSet = $this->startOfSet + $this->pagesPerSet - 1;
 
