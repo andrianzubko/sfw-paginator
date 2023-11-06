@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace SFW;
@@ -90,7 +91,7 @@ class Paginator
         int $totalEntries,
         int $entriesPerPage,
         int $pagesPerSet,
-        int $currentPage
+        int $currentPage,
     ) {
         // {{{ statistics
 
@@ -171,24 +172,22 @@ class Paginator
      */
     public function toArray(): array
     {
-        return array_combine(
-            [
-                'total_entries',
-                'entries_per_page',
-                'pages_per_set',
-                'total_pages',
-                'current_page',
-                'prev_page',
-                'next_page',
-                'start_of_set',
-                'end_of_set',
-                'numbers_of_set',
-                'page_of_prev_set',
-                'page_of_next_set',
-                'start_of_slice',
-                'end_of_slice',
-                'length_of_slice',
-            ], (array) $this
-        );
+        return array_combine([
+            'total_entries',
+            'entries_per_page',
+            'pages_per_set',
+            'total_pages',
+            'current_page',
+            'prev_page',
+            'next_page',
+            'start_of_set',
+            'end_of_set',
+            'numbers_of_set',
+            'page_of_prev_set',
+            'page_of_next_set',
+            'start_of_slice',
+            'end_of_slice',
+            'length_of_slice',
+        ], (array) $this);
     }
 }
